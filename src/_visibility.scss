@@ -1,0 +1,10 @@
+@mixin hide-for-name($name: null) {
+  $prefix: '';
+  @if $name != null {
+    $prefix: '#{$name}-';
+  }
+
+  .#{$prefix}hide {
+     display: none;
+  }
+}

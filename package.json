@@ -1,0 +1,20 @@
+{
+  "name": "cityplan",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "build": "gulp clean && gulp build",
+    "deploy": "npm run build && npm publish"
+  },
+  "repository": "10citylabs/cityplan",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "6.5.0",
+    "cssnano": "3.7.5",
+    "del": "2.2.2",
+    "gulp": "3.9.1",
+    "gulp-postcss": "6.2.0",
+    "gulp-rename": "1.2.2",
+    "gulp-sass": "2.3.2"
+  }
+}

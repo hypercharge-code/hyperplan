@@ -1,0 +1,296 @@
+@function breakpoint-prefix($name) {
+  @if $name != null {
+    @return '#{$name}-';
+  }
+  @else {
+    @return '';
+  }
+}
+
+@function class-list($prefixList, $suffix) {
+  $list: null;
+  @each $name in $prefixList {
+    $currentPrefix: breakpoint-prefix($name);
+    $list: append($list, unquote(".#{$currentPrefix}#{$suffix}"), comma);
+  }
+  @return $list;
+}
+
+@mixin layout($breakpoint) {
+  $prefix: breakpoint-prefix($breakpoint);
+
+  .#{$prefix}column,
+  .#{$prefix}row {
+    box-sizing: border-box;
+    display: flex;
+  }
+  .#{$prefix}column { flex-direction: column; }
+  .#{$prefix}row    { flex-direction: row;    }
+}
+
+@mixin flex-properties($breakpoint, $breakpoints) {
+  $prefix: breakpoint-prefix($breakpoint);
+  $flexName: '#{$prefix}flex';
+
+  .#{$flexName} { flex: 1; box-sizing: border-box; }  // === flex: 1 1 0%;
+
+  .#{$flexName}-grow     { flex: 1 1 100%; box-sizing: border-box; }
+  .#{$flexName}-initial  { flex: 0 1 auto; box-sizing: border-box; }
+  .#{$flexName}-auto     { flex: 1 1 auto; box-sizing: border-box; }
+  .#{$flexName}-none     { flex: 0 0 auto; box-sizing: border-box; }
+  .#{$flexName}-noshrink { flex: 1 0 auto; box-sizing: border-box; }
+  .#{$flexName}-nogrow   { flex: 0 1 auto; box-sizing: border-box; }
+
+  @for $i from 0 through 20 {
+    $value : #{$i * 5 + '%'};
+
+    .#{$flexName}-#{$i * 5} {
+      flex: 1 1 #{$value};
+      max-width: #{$value};
+      max-height: 100%;
+      box-sizing: border-box;
+    }
+
+    #{class-list($breakpoints, 'row > .#{$flexName}-#{$i * 5}')} {
+      flex: 1 1 #{$value};
+      max-width: #{$value};
+      max-height: 100%;
+      box-sizing: border-box;
+    }
+
+    #{class-list($breakpoints, 'column > .#{$flexName}-#{$i * 5}')} {
+      flex: 1 1 #{$value};
+      max-width: 100%;
+      max-height: #{$value};
+      box-sizing: border-box;
+    }
+  }
+
+  #{class-list($breakpoints, 'row')} {
+    > .#{$flexName}-33 {
+      flex: 1 1 33.33%;
+      max-width: 33.33%;
+      max-height: 100%;
+      box-sizing: border-box;
+    }
+    > .#{$flexName}-66 {
+      flex: 1 1 66.66%;
+      max-width: 66.66%;
+      max-height: 100%;
+      box-sizing: border-box;
+    }
+  }
+
+  #{class-list($breakpoints, 'column')} {
+    > .#{$flexName}-33 {
+      flex: 1 1 33.33%;
+      max-width: 100%;
+      max-height: 33.33%;
+      box-sizing: border-box;
+    }
+
+    > .#{$flexName}-66 {
+      flex: 1 1 66.66%;
+      max-width: 100%;
+      max-height: 66.66%;
+      box-sizing: border-box;
+    }
+  }
+}
+
+@mixin layout-align($breakpoint) {
+  // Alignment attributes for layout containers' children
+  // Arrange on the Main Axis
+  // center, start, end, space-between, space-around
+  // flex-start is the default for justify-content
+  // ------------------------------
+  $prefix: '#{breakpoint-prefix($breakpoint)}align';
+
+  .#{$prefix}-start-stretch {
+    justify-content : flex-start;
+    align-content : stretch;
+    align-items: stretch;
+  }
+
+  // Main Axis Center
+  .#{$prefix}-start-start,
+  .#{$prefix}-start-center,
+  .#{$prefix}-start-end,
+  .#{$prefix}-start-stretch {
+    justify-content: flex-start;
+  }
+
+  // Main Axis Center
+  .#{$prefix}-center-start,
+  .#{$prefix}-center-center,
+  .#{$prefix}-center-end,
+  .#{$prefix}-center-stretch {
+    justify-content: center;
+  }
+
+  // Main Axis End
+  .#{$prefix}-end-start,
+  .#{$prefix}-end-center,
+  .#{$prefix}-end-end,
+  .#{$prefix}-end-stretch
+  {
+    justify-content: flex-end;
+  }
+
+  // Main Axis Space Around
+  .#{$prefix}-space-around-center,
+  .#{$prefix}-space-around-start,
+  .#{$prefix}-space-around-end,
+  .#{$prefix}-space-around-stretch {
+    justify-content: space-around;
+  }
+
+  // Main Axis Space Between
+  .#{$prefix}-space-between-center,
+  .#{$prefix}-space-between-start,
+  .#{$prefix}-space-between-end,
+  .#{$prefix}-space-between-stretch {
+    justify-content: space-between;
+  }
+
+
+  // Arrange on the Cross Axis
+  // center, start, end
+  // stretch is the default for align-items
+  // ------------------------------
+
+  // Cross Axis Start
+  .#{$prefix}-start-start,
+  .#{$prefix}-center-start,
+  .#{$prefix}-end-start,
+  .#{$prefix}-space-between-start,
+  .#{$prefix}-space-around-start {
+    align-items: flex-start;
+    align-content: flex-start;
+  }
+
+  // Cross Axis Center
+  .#{$prefix}-start-center,
+  .#{$prefix}-center-center,
+  .#{$prefix}-end-center,
+  .#{$prefix}-space-between-center,
+  .#{$prefix}-space-around-center {
+    align-items: center;
+    align-content: center;
+    max-width: 100%;
+  }
+
+  // Cross Axis Center IE overflow fix
+  .#{$prefix}-start-center > *,
+  .#{$prefix}-center-center > *,
+  .#{$prefix}-end-center > *,
+  .#{$prefix}-space-between-center > *,
+  .#{$prefix}-space-around-center > * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  // Cross Axis End
+  .#{$prefix}-start-end,
+  .#{$prefix}-center-end,
+  .#{$prefix}-end-end,
+  .#{$prefix}-space-between-end,
+  .#{$prefix}-space-around-end {
+    align-items: flex-end;
+    align-content: flex-end;
+  }
+
+  // Cross Axis Start
+  .#{$prefix}-start-stretch,
+  .#{$prefix}-center-stretch,
+  .#{$prefix}-end-stretch,
+  .#{$prefix}-space-between-stretch,
+  .#{$prefix}-space-around-stretch {
+    align-items: stretch;
+    align-content: stretch;
+  }
+}
+
+@mixin flex-order($breakpoint) {
+  $prefix: '#{breakpoint-prefix($breakpoint)}order';
+
+  @for $i from 0 through 7 {
+    $order : '.#{$prefix}-#{$i}';
+
+    #{$order} {
+      order: #{$i};
+    }
+  }
+
+  .#{$prefix}-last {
+    order: 99999;
+  }
+}
+
+@mixin layout-padding-margin($breakpoint, $breakpoints) {
+  $prefix: breakpoint-prefix($breakpoint);
+
+  $step: 0;
+  @each $space in (0 .25rem .5rem 1rem 2rem 4rem) {
+    .#{$prefix}padding-#{$step},
+    #{class-list($breakpoints, 'padding-#{$step} > *')} {
+      padding: $space;
+    }
+
+    .#{$prefix}padding-h-#{$step},
+    #{class-list($breakpoints, 'padding-h-#{$step} > *')} {
+      padding-left:  $space;
+      padding-right: $space;
+    }
+
+    .#{$prefix}padding-v-#{$step},
+    #{class-list($breakpoints, 'padding-h-#{$step} > *')} {
+      padding-top:    $space;
+      padding-bottom: $space;
+    }
+
+    .#{$prefix}margin-#{$step},
+    #{class-list($breakpoints, 'margin-#{$step} > *')} {
+      margin: $space;
+    }
+
+    .#{$prefix}margin-h-#{$step},
+    #{class-list($breakpoints, 'margin-h-#{$step} > *')} {
+      margin-left:  $space;
+      margin-right: $space;
+    }
+
+    .#{$prefix}margin-v-#{$step},
+    #{class-list($breakpoints, 'margin-v-#{$step} > *')} {
+      margin-top:    $space;
+      margin-bottom: $space;
+    }
+
+    $step: $step + 1;
+  }
+}
+
+@mixin layouts_for_breakpoint($currentBreakpoint, $breakpoints) {
+  @include flex-order($currentBreakpoint);
+  @include layout-align($currentBreakpoint);
+  @include layout-padding-margin($currentBreakpoint, $breakpoints);
+  @include flex-properties($currentBreakpoint, $breakpoints);
+  @include layout($currentBreakpoint);
+
+  @if $currentBreakpoint == null {
+    .wrap {
+      flex-wrap: wrap;
+    }
+
+    .nowrap {
+        flex-wrap: nowrap;
+    }
+
+    .fill {
+      margin: 0;
+      width: 100%;
+      min-height: 100%;
+      height: 100%;
+    }
+  }
+}
