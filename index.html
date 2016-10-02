@@ -18,6 +18,14 @@
       font-size: 12px;
       overflow: auto;
     }
+    .demo {
+      color: rgba(255, 255, 255, .9);
+      position: relative;
+      display: flex;
+      min-height: 128px;
+      font-family: Consolas,monaco,monospace;
+      text-align: center;
+    }
   </style>
 
   <!--[if lt IE 9]>
@@ -44,53 +52,79 @@
         Copy the line of code below and paste it in the head of the html file(s) you want to include tachyons in.
         <pre class="code"><code class="code">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://unpkg.com/cityplan@latest/dist/cityplan.min.css&quot;&gt;</code></pre>
 
-        or install via npm and import it.
+        or install via npm:
 
         <pre class="code"><code class="code">npm install cityplan --save</code></pre>
 
-        <h3>Responsiveness</h3>
+      <h3>Layouts and Containers</h3>
 
-        CityPlan is mobile-first and responsive, and you're able to customize the grid
-        by specifying CSS Media Query breakpoints and grid classnames.
+      Use the <code>.row</code> and <code>.column</code> classes on a container element to specify
+      the layout direction for its children: horizontally in a row or vertically in a column.
 
-        <table>
-          <thead>
-              <tr>
-                  <th>Key</th>
-                  <th>Applies</th>
-                  <th>Classname</th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr>
-                  <td><i>None</i></td>
-                  <td><i>Always</i></td>
-                  <td><code>.row</code></td>
-              </tr>
-              <tr>
-                  <td><code>@media screen and (min-width: 35.5em)</code></td>
-                  <td>≥ <b>568px</b></td>
-                  <td><code>.<b>md-row</b></code></td>
-              </tr>
-              <tr>
-                  <td><code>@media screen and (min-width: 48em)</code></td>
-                  <td>≥ <b>768px</b></td>
-                  <td><code>.<b>lg</b>-row</code></td>
-              </tr>
-          </tbody>
-      </table>
-
-      <h3>Examples</h3>
-
-      <div class="row wrap">
-        <div class="bg-yellow flex">.flex</div>
-        <div class="bg-green flex">.flex</div>
-        <div class="bg-red flex">.flex</div>
+      <div class="demo">
+        <div class="row" style="width: 50%;">
+          <div class="bg-purple flex">First item in row</div>
+          <div class="bg-green flex">Second item in row</div>
+        </div>
+        <div class="column" style="width: 50%;">
+          <div class="bg-purple flex">First item in column</div>
+          <div class="bg-green flex">Second item in column</div>
+        </div>
       </div>
 
-      <br>
+      Note these classes only affect the flow direction for that container's immediate children.
 
-      <div class="row">
+      <h3>Layouts and Responsive Breakpoints</h3>
+
+      CityPlan is mobile-first and responsive, and you're able to customize the grid
+      by specifying CSS Media Query breakpoints and grid classnames.
+
+      To make your layout automatically change depending upon the device screen size,
+      use one to the following layout classes:
+
+      <table>
+        <thead>
+            <tr>
+                <th>Classname</th>
+                <th>Applies</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td><code>.row</code></td>
+                <td><i>Always</i></td>
+            </tr>
+            <tr>
+              <td><code>.column</code></td>
+                <td><i>Always</i></td>
+            </tr>
+            <tr>
+                <td><code>.<b>md-row</b></code></td>
+                <td>≥ <b>35.5em</b></td>
+            </tr>
+            <tr>
+                <td><code>.<b>md-column</b></code></td>
+                <td>≥ <b>35.5em</b></td>
+            </tr>
+            <tr>
+                <td><code>.<b>lg</b>-row</code></td>
+                <td>≥ <b>64em</b></td>
+            </tr>
+            <tr>
+                <td><code>.<b>lg</b>-column</code></td>
+                <td>≥ <b>64em</b></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Children within a Layout Container</h3>
+
+    To customize the size and position of elements in a layout container,
+    use the <code>.flex</code>, <code>.order</code>, and <code>.offset</code>
+    classes on the container's child elements:
+
+    <div class="demo">
+      <div class="row" style="width: 100%;">
         <div class="bg-yellow flex-20">
           .flex-20
         </div>
@@ -101,10 +135,27 @@
           .flex
         </div>
       </div>
+    </div>
 
-      <br>
+    Add the <code>.flex</code> class to a layout's child element and the element
+    will flex (grow or shrink) to fit the area unused by other elements.
+    Flex defines how the element will adjust its size with respect to its
+    parent container and the other elements within the container.
 
-      <div class="row wrap">
+    <div class="demo">
+      <div class="row" style="width: 100%;">
+        <div class="bg-yellow flex">.flex</div>
+        <div class="bg-green flex">.flex</div>
+        <div class="bg-red flex">.flex</div>
+      </div>
+    </div>
+
+    A layout child's flex class can be given an integer value from 0-100 as its suffix.
+    The element will stretch to the percentage of available space matching the value.
+    Currently, the flex classes integers are restricted to multiples of five, 33 or 66.
+
+    <div class="demo">
+      <div class="row wrap" style="width: 100%;">
         <div class="bg-gold flex-30">
           .flex-30
         </div>
@@ -127,10 +178,12 @@
           .flex
         </div>
       </div>
+    </div>
 
-      <br>
+    responsive...
 
-      <div class="row">
+    <div class="demo">
+      <div class="row" style="width: 100%;">
         <div class="bg-purple flex-33 md-flex-66">
           flex 33% on mobile, <br>and 66% on bigger devices.
         </div>
@@ -138,6 +191,47 @@
           flex 66% on mobile, <br>and 33% on bigger devices.
         </div>
       </div>
+    </div>
+
+    <h3>Additional Flex Values</h3>
+
+    <table>
+      <thead>
+          <tr>
+              <th>Classname</th>
+              <th>Description</th>
+          </tr>
+      </thead>
+    <tbody>
+      <tr>
+        <td><code>.flex</code></td>
+        <td>Will grow and shrink as needed. Starts with a size of 0%. Same as <code>.flex-0</code>.</td>
+      </tr>
+      <tr>
+        <td><code>.flex-none</code></td>
+        <td>Will not grow or shrink. Sized based on its <code>width</code> and <code>height</code> values.</td>
+      </tr>
+      <tr>
+        <td><code>.flex-initial</code></td>
+        <td>Will shrink as needed. Starts with a size based on its <code>width</code> and <code>height</code> values.</td>
+      </tr>
+      <tr>
+        <td><code>.flex-auto</code></td>
+        <td>Will grow and shrink as needed. Starts with a size based on its <code>width</code> and <code>height</code> values.</td>
+      </tr>
+      <tr>
+        <td><code>.flex-grow</code></td>
+        <td>Will grow and shrink as needed. Starts with a size of 100%. Same as <code>.flex-100</code>.</td>
+      </tr>
+      <tr>
+        <td><code>.flex-nogrow</code></td>
+        <td>Will shrink as needed, but won't grow. Starts with a size based on its <code>width</code> and <code>height</code> values.</td>
+      </tr>
+      <tr>
+        <td><code>.flex-noshrink</code></td>
+        <td>Will grow as needed, but won't shrink. Starts with a size based on its <code>width</code> and <code>height</code> values.</td>
+      </tr>
+  </tbody></table>
 
 </body>
 </html>
