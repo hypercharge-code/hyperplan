@@ -11,13 +11,13 @@
   $list: null;
   @each $name in $prefixList {
     $currentPrefix: breakpoint-prefix($name);
-    $list: append($list, unquote(".#{$currentPrefix}#{$suffix}"), comma);
+    $list: append($list, unquote(".cp-c-#{$currentPrefix}#{$suffix}"), comma);
   }
   @return $list;
 }
 
 @mixin layout($breakpoint) {
-  $prefix: breakpoint-prefix($breakpoint);
+  $prefix: 'cp-c-#{breakpoint-prefix($breakpoint)}';
 
   .#{$prefix}column,
   .#{$prefix}row {
@@ -29,36 +29,31 @@
 }
 
 @mixin flex-properties($breakpoint, $breakpoints) {
-  $prefix: breakpoint-prefix($breakpoint);
-  $flexName: '#{$prefix}flex';
+  $prefix: 'cp-i-#{breakpoint-prefix($breakpoint)}';
 
-  .#{$flexName} { flex: 1; box-sizing: border-box; }  // === flex: 1 1 0%;
-
-  .#{$flexName}-grow     { flex: 1 1 100%; box-sizing: border-box; }
-  .#{$flexName}-initial  { flex: 0 1 auto; box-sizing: border-box; }
-  .#{$flexName}-auto     { flex: 1 1 auto; box-sizing: border-box; }
-  .#{$flexName}-none     { flex: 0 0 auto; box-sizing: border-box; }
-  .#{$flexName}-noshrink { flex: 1 0 auto; box-sizing: border-box; }
-  .#{$flexName}-nogrow   { flex: 0 1 auto; box-sizing: border-box; }
+  .#{$prefix}auto     { flex: 1 1 auto; box-sizing: border-box; }
+  .#{$prefix}none     { flex: 0 0 auto; box-sizing: border-box; }
+  .#{$prefix}noshrink { flex: 1 0 auto; box-sizing: border-box; }
+  .#{$prefix}nogrow   { flex: 0 1 auto; box-sizing: border-box; }
 
   @for $i from 0 through 20 {
     $value : #{$i * 5 + '%'};
 
-    .#{$flexName}-#{$i * 5} {
+    .#{$prefix}#{$i * 5} {
       flex: 1 1 #{$value};
       max-width: #{$value};
       max-height: 100%;
       box-sizing: border-box;
     }
 
-    #{class-list($breakpoints, 'row > .#{$flexName}-#{$i * 5}')} {
+    #{class-list($breakpoints, 'row > .#{$prefix}#{$i * 5}')} {
       flex: 1 1 #{$value};
       max-width: #{$value};
       max-height: 100%;
       box-sizing: border-box;
     }
 
-    #{class-list($breakpoints, 'column > .#{$flexName}-#{$i * 5}')} {
+    #{class-list($breakpoints, 'column > .#{$prefix}#{$i * 5}')} {
       flex: 1 1 #{$value};
       max-width: 100%;
       max-height: #{$value};
@@ -67,13 +62,13 @@
   }
 
   #{class-list($breakpoints, 'row')} {
-    > .#{$flexName}-33 {
+    > .#{$prefix}33 {
       flex: 1 1 33.33%;
       max-width: 33.33%;
       max-height: 100%;
       box-sizing: border-box;
     }
-    > .#{$flexName}-66 {
+    > .#{$prefix}66 {
       flex: 1 1 66.66%;
       max-width: 66.66%;
       max-height: 100%;
@@ -82,14 +77,14 @@
   }
 
   #{class-list($breakpoints, 'column')} {
-    > .#{$flexName}-33 {
+    > .#{$prefix}33 {
       flex: 1 1 33.33%;
       max-width: 100%;
       max-height: 33.33%;
       box-sizing: border-box;
     }
 
-    > .#{$flexName}-66 {
+    > .#{$prefix}66 {
       flex: 1 1 66.66%;
       max-width: 100%;
       max-height: 66.66%;
@@ -104,7 +99,7 @@
   // center, start, end, space-between, space-around
   // flex-start is the default for justify-content
   // ------------------------------
-  $prefix: '#{breakpoint-prefix($breakpoint)}align';
+  $prefix: 'cp-c-#{breakpoint-prefix($breakpoint)}align';
 
   .#{$prefix}-start-stretch {
     justify-content : flex-start;
@@ -212,7 +207,7 @@
 }
 
 @mixin flex-order($breakpoint) {
-  $prefix: '#{breakpoint-prefix($breakpoint)}order';
+  $prefix: 'cp-i-#{breakpoint-prefix($breakpoint)}order';
 
   @for $i from 0 through 7 {
     $order : '.#{$prefix}-#{$i}';
@@ -228,7 +223,7 @@
 }
 
 @mixin layout-padding-margin($breakpoint, $breakpoints) {
-  $prefix: breakpoint-prefix($breakpoint);
+  $prefix: 'cp-i-#{breakpoint-prefix($breakpoint)}';
 
   $step: 0;
   @each $space in (0 .25rem .5rem 1rem 2rem 4rem) {
@@ -278,15 +273,15 @@
   @include layout($currentBreakpoint);
 
   @if $currentBreakpoint == null {
-    .wrap {
+    .cp-c-wrap {
       flex-wrap: wrap;
     }
 
-    .nowrap {
+    .cp-c-nowrap {
         flex-wrap: nowrap;
     }
 
-    .fill {
+    .cp-c-fill {
       margin: 0;
       width: 100%;
       min-height: 100%;
