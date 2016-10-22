@@ -96,7 +96,7 @@
                   <td><i>None</i></td>
                   <td><i>None</i></td>
                   <td><i>Always</i></td>
-                  <td><code>.cp-c-*</code><code>.cp-b-*</code></td>
+                  <td><code>.cp-c-*</code><br><code>.cp-b-*</code></td>
               </tr>
               <tr>
                   <td><b><code>sm</code></b></td>
@@ -126,80 +126,76 @@
       </table>
 
     <h3>Children within a Layout Container</h3>
+      <p>To customize the size and position of boxes inside a container element,
+      use the <code>.cp-b-*</code> classes:</p>
 
-    To customize the size and position of elements in a layout container,
-    use the <code>.flex</code>, <code>.order</code>, and <code>.offset</code>
-    classes on the container's child elements:
-
-    <div class="demo">
-      <div class="row" style="width: 100%;">
-        <div class="bg-yellow flex-20">
-          .flex-20
-        </div>
-        <div class="bg-green flex-70">
-          .flex-70
-        </div>
-        <div class="bg-red flex">
-          .flex
+      <div class="demo">
+        <div class="row" style="width: 100%;">
+          <div class="bg-yellow cp-b-20">
+            .cp-b-20
+          </div>
+          <div class="bg-green cp-b-70">
+            .cp-b-70
+          </div>
+          <div class="bg-red cp-b-fit">
+            .cp-b-fit
+          </div>
         </div>
       </div>
-    </div>
 
-    Add the <code>.flex</code> class to a layout's child element and the element
-    will flex (grow or shrink) to fit the area unused by other elements.
-    Flex defines how the element will adjust its size with respect to its
-    parent container and the other elements within the container.
+      <p>Add the <code>.cp-b-fit</code> class to a layout's child element and the element
+      will flex (grow or shrink) to fit the area unused by other boxes.</p>
 
-    <div class="demo">
-      <div class="row" style="width: 100%;">
-        <div class="bg-yellow flex">.flex</div>
-        <div class="bg-green flex">.flex</div>
-        <div class="bg-red flex">.flex</div>
-      </div>
-    </div>
-
-    A layout child's flex class can be given an integer value from 0-100 as its suffix.
-    The element will stretch to the percentage of available space matching the value.
-    Currently, the flex classes integers are restricted to multiples of five, 33 or 66.
-
-    <div class="demo">
-      <div class="row wrap" style="width: 100%;">
-        <div class="bg-gold flex-30">
-          .flex-30
-        </div>
-        <div class="bg-yellow flex-45">
-          .flex-45
-        </div>
-        <div class="bg-green flex-25">
-          .flex-25
-        </div>
-        <div class="bg-red flex-33">
-          .flex-33
-        </div>
-        <div class="bg-blue flex-66">
-          .flex-66
-        </div>
-        <div class="bg-purple flex-50">
-          .flex-50
-        </div>
-        <div class="bg-black-60 flex">
-          .flex
+      <div class="demo">
+        <div class="cp-c-row" style="width: 100%;">
+          <div class="bg-yellow cp-b-fit">.cp-b-fit</div>
+          <div class="bg-green cp-b-fit">.cp-b-fit</div>
+          <div class="bg-red cp-b-fit">.cp-b-fit</div>
         </div>
       </div>
-    </div>
 
-    responsive...
+      <p>A box class can also be given an integer value from 5-100 as its suffix (e.g., <code>.cp-b-45</code>).
+      The element will stretch to the percentage of available space matching the value.
+      Currently, the flex classes integers are restricted to 33, 66, or multiples of 5.</p>
 
-    <div class="demo">
-      <div class="row" style="width: 100%;">
-        <div class="bg-purple flex-33 md-flex-66">
-          flex 33% on mobile, <br>and 66% on bigger devices.
-        </div>
-        <div class="bg-green flex-66 md-flex-33">
-          flex 66% on mobile, <br>and 33% on bigger devices.
+      <div class="demo">
+        <div class="cp-c-row cp-c-wrap" style="width: 100%;">
+          <div class="bg-gold cp-b-30">
+            .cp-b-30
+          </div>
+          <div class="bg-yellow cp-b-45">
+            .cp-b-45
+          </div>
+          <div class="bg-green cp-b-25">
+            .cp-b-25
+          </div>
+          <div class="bg-red cp-b-33">
+            .cp-b-33
+          </div>
+          <div class="bg-blue cp-b-66">
+            .cp-b-66
+          </div>
+          <div class="bg-purple cp-b-50">
+            .cp-b-50
+          </div>
+          <div class="bg-black-60 cp-b-fit">
+            .cp-b-fit
+          </div>
         </div>
       </div>
-    </div>
+
+      responsive...
+
+      <div class="demo">
+        <div class="cp-c-row" style="width: 100%;">
+          <div class="bg-purple cp-b-33 cp-b-md-66">
+            flex 33% on mobile, <br>and 66% on bigger devices.
+          </div>
+          <div class="bg-green cp-b-66 cp-b-md-33">
+            flex 66% on mobile, <br>and 33% on bigger devices.
+          </div>
+        </div>
+      </div>
 
     <h3>Additional Flex Values</h3>
 
@@ -210,36 +206,36 @@
               <th>Description</th>
           </tr>
       </thead>
-    <tbody>
-      <tr>
-        <td><code>.flex</code></td>
-        <td>Will grow and shrink as needed. Starts with a size of 0%. Same as <code>.flex-0</code>.</td>
-      </tr>
-      <tr>
-        <td><code>.flex-none</code></td>
-        <td>Will not grow or shrink. Sized based on its <code>width</code> and <code>height</code> values.</td>
-      </tr>
-      <tr>
-        <td><code>.flex-initial</code></td>
-        <td>Will shrink as needed. Starts with a size based on its <code>width</code> and <code>height</code> values.</td>
-      </tr>
-      <tr>
-        <td><code>.flex-auto</code></td>
-        <td>Will grow and shrink as needed. Starts with a size based on its <code>width</code> and <code>height</code> values.</td>
-      </tr>
-      <tr>
-        <td><code>.flex-grow</code></td>
-        <td>Will grow and shrink as needed. Starts with a size of 100%. Same as <code>.flex-100</code>.</td>
-      </tr>
-      <tr>
-        <td><code>.flex-nogrow</code></td>
-        <td>Will shrink as needed, but won't grow. Starts with a size based on its <code>width</code> and <code>height</code> values.</td>
-      </tr>
-      <tr>
-        <td><code>.flex-noshrink</code></td>
-        <td>Will grow as needed, but won't shrink. Starts with a size based on its <code>width</code> and <code>height</code> values.</td>
-      </tr>
-  </tbody></table>
-
+      <tbody>
+        <tr>
+          <td><code>.cp-b-fit</code></td>
+          <td>Will grow and shrink as needed. Starts with a size of 0%.</td>
+        </tr>
+        <tr>
+          <td><code>.cp-b-none</code></td>
+          <td>Will not grow or shrink. Sized based on its <code>width</code> and <code>height</code> values.</td>
+        </tr>
+        <tr>
+          <td><code>.cp-b-initial</code></td>
+          <td>Will shrink as needed. Starts with a size based on its <code>width</code> and <code>height</code> values.</td>
+        </tr>
+        <tr>
+          <td><code>.cp-b-auto</code></td>
+          <td>Will grow and shrink as needed. Starts with a size based on its <code>width</code> and <code>height</code> values.</td>
+        </tr>
+        <tr>
+          <td><code>.cp-b-grow</code></td>
+          <td>Will grow and shrink as needed. Starts with a size of 100%.</td>
+        </tr>
+        <tr>
+          <td><code>.cp-b-nogrow</code></td>
+          <td>Will shrink as needed, but won't grow. Starts with a size based on its <code>width</code> and <code>height</code> values.</td>
+        </tr>
+        <tr>
+          <td><code>.cp-b-noshrink</code></td>
+          <td>Will grow as needed, but won't shrink. Starts with a size based on its <code>width</code> and <code>height</code> values.</td>
+        </tr>
+    </tbody>
+  </table>
 </body>
 </html>
