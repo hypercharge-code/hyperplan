@@ -32,13 +32,13 @@
   <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 
-  <title>CityPlan by 10citylabs</title>
+  <title>CityPlan CSS by 10citylabs</title>
 </head>
 
 <body>
   <header>
     <div class="inner">
-      <h1>CityPlan</h1>
+      <h1>CityPlan CSS</h1>
       <h2></h2>
       <a href="https://github.com/10citylabs/cityplan" class="button"><small>View project on</small> GitHub</a>
     </div>
@@ -55,6 +55,19 @@
         or install via npm:
 
         <pre class="code"><code class="code">npm install cityplan --save</code></pre>
+
+      <h3>Introduction</h3>
+
+      There are a few simple concepts to keep in mind:
+
+      <h4>Grid/layout classes vs. unit/flex classes</h4>
+      CityPlan CSS consist of two types of classes: the grid classes (cp-g-*) and unit classes (cp-u or cp-u-*).
+
+      <h4>All child elements of a grid must be units</h4>
+      Child elements contained within an element with a cp-g-* classname must be a grid unit with a cp-u or cp-u-* classname.
+
+      <h4>Content goes inside grid units</h4>
+      All content which is visible to people needs to be contained inside a grid unit. This ensures that the content will be rendered properly.
 
       <h3>Layouts and Containers</h3>
 
@@ -76,7 +89,7 @@
 
       <h3>Layouts and Responsive Breakpoints</h3>
 
-      CityPlan is mobile-first and responsive, and you're able to customize the grid
+      CityPlan CSS is mobile-first and responsive, and you're able to customize the grid
       by specifying CSS Media Query breakpoints and grid classnames.
 
       To make your layout automatically change depending upon the device screen size,
