@@ -62,23 +62,23 @@
 
       <h3>Container Layouts</h3>
 
-        <p>CityPlan CSS consist of two types of classes: the <b>container</b> classes (cp-c-*) and <b>box</b> classes (cp-b-*).</p>
+        <p>CityPlan CSS consist of two types of classes: the <b>container</b> classes (cp-c-*) and <b>item</b> classes (cp-i-*).</p>
 
         <p>Use the <code>.cp-c-row</code> and <code>.cp-c-column</code> classes on a container element to specify
           the layout direction for its children: horizontally in a row or vertically in a column.</p>
 
         <div class="demo">
           <div class="cp-c-row" style="width: 50%;">
-            <div class="bg-purple cp-b-fit">First item in row</div>
-            <div class="bg-green cp-b-fit">Second item in row</div>
+            <div class="bg-purple cp-i-auto">First item in row</div>
+            <div class="bg-green cp-i-auto">Second item in row</div>
           </div>
           <div class="cp-c-column" style="width: 50%;">
-            <div class="bg-purple cp-b-fit">First item in column</div>
-            <div class="bg-green cp-b-fit">Second item in column</div>
+            <div class="bg-purple cp-i-auto">First item in column</div>
+            <div class="bg-green cp-i-auto">Second item in column</div>
           </div>
         </div>
 
-        <p>Note these classes only affect the flow direction for that container's immediate children / boxes.</p>
+        <p>Note these classes only affect the flow direction for that container's immediate children / items.</p>
 
       <h3>Layouts and Responsive Breakpoints</h3>
         <p>To make your layout automatically change depending upon the device screen size, use one of the following classes:</p>
@@ -96,90 +96,90 @@
                   <td><i>None</i></td>
                   <td><i>None</i></td>
                   <td><i>Always</i></td>
-                  <td><code>.cp-c-*</code><br><code>.cp-b-*</code></td>
+                  <td><code>.cp-c-*</code><br><code>.cp-i-*</code></td>
               </tr>
               <tr>
                   <td><b><code>sm</code></b></td>
                   <td><code>@media screen and (min-width: 35.5em)</code></td>
                   <td>≥ <b>568px</b></td>
-                  <td><code>.cp-c-<b>sm</b>-*</code><br><code>.cp-b-<b>sm</b>-*</code></td>
+                  <td><code>.cp-c-<b>sm</b>-*</code><br><code>.cp-i-<b>sm</b>-*</code></td>
               </tr>
               <tr>
                   <td><b><code>md</code></b></td>
                   <td><code>@media screen and (min-width: 48em)</code></td>
                   <td>≥ <b>768px</b></td>
-                  <td><code>.cp-c-<b>md</b>-*</code><br><code>.cp-b-<b>md</b>-*</code></td>
+                  <td><code>.cp-c-<b>md</b>-*</code><br><code>.cp-i-<b>md</b>-*</code></td>
               </tr>
               <tr>
                   <td><b><code>lg</code></b></td>
                   <td><code>@media screen and (min-width: 64em)</code></td>
                   <td>≥ <b>1024px</b></td>
-                  <td><code>.cp-c-<b>lg</b>-*</code><br><code>.cp-b-<b>lg</b>-*</code></td>
+                  <td><code>.cp-c-<b>lg</b>-*</code><br><code>.cp-i-<b>lg</b>-*</code></td>
               </tr>
               <tr>
                   <td><b><code>xl</code></b></td>
                   <td><code>@media screen and (min-width: 80em)</code></td>
                   <td>≥ <b>1280px</b></td>
-                  <td><code>.cp-c-<b>xl</b>-*</code><br><code>.cp-b-<b>xl</b>-*</code></td>
+                  <td><code>.cp-c-<b>xl</b>-*</code><br><code>.cp-i-<b>xl</b>-*</code></td>
               </tr>
           </tbody>
       </table>
 
     <h3>Children within a Layout Container</h3>
-      <p>To customize the size and position of boxes inside a container element,
-      use the <code>.cp-b-*</code> classes:</p>
+      <p>To customize the size and position of items inside a container element,
+      use the <code>.cp-i-*</code> classes:</p>
 
       <div class="demo">
         <div class="row" style="width: 100%;">
-          <div class="bg-yellow cp-b-20">
-            .cp-b-20
+          <div class="bg-yellow cp-i-20">
+            .cp-i-20
           </div>
-          <div class="bg-green cp-b-70">
-            .cp-b-70
+          <div class="bg-green cp-i-70">
+            .cp-i-70
           </div>
-          <div class="bg-red cp-b-fit">
-            .cp-b-fit
+          <div class="bg-red cp-i-auto">
+            .cp-i-auto
           </div>
         </div>
       </div>
 
-      <p>Add the <code>.cp-b-fit</code> class to a layout's child element and the element
-      will flex (grow or shrink) to fit the area unused by other boxes.</p>
+      <p>Add the <code>.cp-i-auto</code> class to a layout's child element and the element
+      will flex (grow or shrink) to fit the area unused by other items.</p>
 
       <div class="demo">
         <div class="cp-c-row" style="width: 100%;">
-          <div class="bg-yellow cp-b-fit">.cp-b-fit</div>
-          <div class="bg-green cp-b-fit">.cp-b-fit</div>
-          <div class="bg-red cp-b-fit">.cp-b-fit</div>
+          <div class="bg-yellow cp-i-auto">.cp-i-auto</div>
+          <div class="bg-green cp-i-auto">.cp-i-auto</div>
+          <div class="bg-red cp-i-auto">.cp-i-auto</div>
         </div>
       </div>
 
-      <p>A box class can also be given an integer value from 5-100 as its suffix (e.g., <code>.cp-b-45</code>).
+      <p>An item class can also be given an integer value from 5-100 as its suffix (e.g., <code>.cp-i-45</code>).
       The element will stretch to the percentage of available space matching the value.
       Currently, the flex classes integers are restricted to 33, 66, or multiples of 5.</p>
 
       <div class="demo">
         <div class="cp-c-row cp-c-wrap" style="width: 100%;">
-          <div class="bg-gold cp-b-30">
-            .cp-b-30
+          <div class="bg-gold cp-i-30">
+            .cp-i-30
           </div>
-          <div class="bg-yellow cp-b-45">
-            .cp-b-45
+          <div class="bg-yellow cp-i-45">
+            .cp-i-45
           </div>
-          <div class="bg-green cp-b-25">
-            .cp-b-25
+          <div class="bg-green cp-i-25">
+            .cp-i-25
           </div>
-          <div class="bg-red cp-b-33">
-            .cp-b-33
+          <div class="bg-red cp-i-33">
+            .cp-i-33
           </div>
-          <div class="bg-blue cp-b-66">
-            .cp-b-66
+          <div class="bg-blue cp-i-66">
+            .cp-i-66
           </div>
-          <div class="bg-purple cp-b-50">
-            .cp-b-50
+          <div class="bg-purple cp-i-50">
+            .cp-i-50
           </div>
-          <div class="bg-black-60 cp-b-fit">
-            .cp-b-fit
+          <div class="bg-black-60 cp-i-auto">
+            .cp-i-auto
           </div>
         </div>
       </div>
@@ -188,10 +188,10 @@
 
       <div class="demo">
         <div class="cp-c-row" style="width: 100%;">
-          <div class="bg-purple cp-b-33 cp-b-md-66">
+          <div class="bg-purple cp-i-33 cp-i-md-66">
             flex 33% on mobile, <br>and 66% on bigger devices.
           </div>
-          <div class="bg-green cp-b-66 cp-b-md-33">
+          <div class="bg-green cp-i-66 cp-i-md-33">
             flex 66% on mobile, <br>and 33% on bigger devices.
           </div>
         </div>
@@ -208,31 +208,19 @@
       </thead>
       <tbody>
         <tr>
-          <td><code>.cp-b-fit</code></td>
-          <td>Will grow and shrink as needed. Starts with a size of 0%.</td>
-        </tr>
-        <tr>
-          <td><code>.cp-b-none</code></td>
-          <td>Will not grow or shrink. Sized based on its <code>width</code> and <code>height</code> values.</td>
-        </tr>
-        <tr>
-          <td><code>.cp-b-initial</code></td>
-          <td>Will shrink as needed. Starts with a size based on its <code>width</code> and <code>height</code> values.</td>
-        </tr>
-        <tr>
-          <td><code>.cp-b-auto</code></td>
+          <td><code>.cp-i-auto</code></td>
           <td>Will grow and shrink as needed. Starts with a size based on its <code>width</code> and <code>height</code> values.</td>
         </tr>
         <tr>
-          <td><code>.cp-b-grow</code></td>
-          <td>Will grow and shrink as needed. Starts with a size of 100%.</td>
+          <td><code>.cp-i-none</code></td>
+          <td>Will not grow or shrink. Sized based on its <code>width</code> and <code>height</code> values.</td>
         </tr>
         <tr>
-          <td><code>.cp-b-nogrow</code></td>
+          <td><code>.cp-i-nogrow</code></td>
           <td>Will shrink as needed, but won't grow. Starts with a size based on its <code>width</code> and <code>height</code> values.</td>
         </tr>
         <tr>
-          <td><code>.cp-b-noshrink</code></td>
+          <td><code>.cp-i-noshrink</code></td>
           <td>Will grow as needed, but won't shrink. Starts with a size based on its <code>width</code> and <code>height</code> values.</td>
         </tr>
     </tbody>
