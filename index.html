@@ -58,31 +58,29 @@
 
       <h3>Introduction</h3>
 
-      There are a few simple concepts to keep in mind:
-
-      <h4>Container classes vs. box classes</h4>
-      CityPlan CSS consist of two types of classes: the container classes (cp-c-*) and box classes (cp-b-*).
-
-      <h4>All child elements of a container must be boxes</h4>
-      Child elements contained within an element with a cp-c-* classname must be a box with a cp-b-* classname.
+        CityPlan CSS is essentially a remake of Angular Material's CSS layout with some ideas taken from other popular CSS grid systems like Pure or Tachions.
+        
+        It is mobile-first, responsive, and flexbox-based.
 
       <h3>Container Layouts</h3>
 
-      Use the <code>.cp-c-row</code> and <code>.cp-c-column</code> classes on a container element to specify
-      the layout direction for its children: horizontally in a row or vertically in a column.
+        CityPlan CSS consist of two types of classes: the container classes (cp-c-*) and box classes (cp-b-*).
 
-      <div class="demo">
-        <div class="cp-c-row" style="width: 50%;">
-          <div class="bg-purple cp-b-0">First item in row</div>
-          <div class="bg-green cp-b-0">Second item in row</div>
-        </div>
-        <div class="cp-c-column" style="width: 50%;">
-          <div class="bg-purple cp-b-0">First item in column</div>
-          <div class="bg-green cp-b-0">Second item in column</div>
-        </div>
-      </div>
+        Use the <code>.cp-c-row</code> and <code>.cp-c-column</code> classes on a container element to specify
+        the layout direction for its children: horizontally in a row or vertically in a column.
 
-      Note these classes only affect the flow direction for that container's immediate children.
+        <div class="demo">
+          <div class="cp-c-row" style="width: 50%;">
+            <div class="bg-purple cp-b-fit">First item in row</div>
+            <div class="bg-green cp-b-fit">Second item in row</div>
+          </div>
+          <div class="cp-c-column" style="width: 50%;">
+            <div class="bg-purple cp-b-fit">First item in column</div>
+            <div class="bg-green cp-b-fit">Second item in column</div>
+          </div>
+        </div>
+
+        Note these classes only affect the flow direction for that container's immediate children.
 
       <h3>Layouts and Responsive Breakpoints</h3>
 
