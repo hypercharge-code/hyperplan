@@ -49,7 +49,7 @@
       <section id="main-content">
         <h3>Introduction</h3>
           <p>CityPlan CSS is essentially a remake of Angular Material's CSS layout with some ideas taken from other popular CSS grid systems like Pure or Tachions.</p>
-          <p>It is mobile-first, responsive, and flexbox-based.</p>
+          <p>It is mobile-first, responsive, and based on CSS3 flexbox.</p>
         
         <h3>Getting Started</h3>
 
@@ -62,10 +62,10 @@
 
       <h3>Container Layouts</h3>
 
-        CityPlan CSS consist of two types of classes: the <b>container</b> classes (cp-c-*) and <b>box</b> classes (cp-b-*).
+        <p>CityPlan CSS consist of two types of classes: the <b>container</b> classes (cp-c-*) and <b>box</b> classes (cp-b-*).</p>
 
-        Use the <code>.cp-c-row</code> and <code>.cp-c-column</code> classes on a container element to specify
-        the layout direction for its children: horizontally in a row or vertically in a column.
+        <p>Use the <code>.cp-c-row</code> and <code>.cp-c-column</code> classes on a container element to specify
+          the layout direction for its children: horizontally in a row or vertically in a column.</p>
 
         <div class="demo">
           <div class="cp-c-row" style="width: 50%;">
@@ -78,50 +78,52 @@
           </div>
         </div>
 
-        Note these classes only affect the flow direction for that container's immediate children.
+        <p>Note these classes only affect the flow direction for that container's immediate children / boxes.</p>
 
       <h3>Layouts and Responsive Breakpoints</h3>
-
-      CityPlan CSS is mobile-first and responsive, and you're able to customize the layout
-      by specifying CSS Media Query breakpoints and container classnames.
-
-      To make your layout automatically change depending upon the device screen size,
-      use one to the following layout classes:
-
-      <table>
-        <thead>
-            <tr>
-                <th>Classname</th>
-                <th>Applies</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-              <td><code>.cp-c-row</code></td>
-                <td><i>Always</i></td>
-            </tr>
-            <tr>
-              <td><code>.cp-c-column</code></td>
-                <td><i>Always</i></td>
-            </tr>
-            <tr>
-                <td><code>.<b>cp-c-md-row</b></code></td>
-                <td>≥ <b>35.5em</b></td>
-            </tr>
-            <tr>
-                <td><code>.<b>cp-c-md-column</b></code></td>
-                <td>≥ <b>35.5em</b></td>
-            </tr>
-            <tr>
-                <td><code>.cp-c-<b>lg</b>-row</code></td>
-                <td>≥ <b>64em</b></td>
-            </tr>
-            <tr>
-                <td><code>.cp-c-<b>lg</b>-column</code></td>
-                <td>≥ <b>64em</b></td>
-            </tr>
-        </tbody>
-    </table>
+        <p>To make your layout automatically change depending upon the device screen size, use one of the following classes:</p>
+        <table>
+          <thead>
+              <tr>
+                  <th>Key</th>
+                  <th>CSS Media Query</th>
+                  <th>Applies</th>
+                  <th>Classname</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td><i>None</i></td>
+                  <td><i>None</i></td>
+                  <td><i>Always</i></td>
+                  <td><code>.cp-c-*</code><code>.cp-b-*</code></td>
+              </tr>
+              <tr>
+                  <td><b><code>sm</code></b></td>
+                  <td><code>@media screen and (min-width: 35.5em)</code></td>
+                  <td> <b>568px</b></td>
+                  <td><code>.cp-c-<b>sm</b>-*</code><code>.cp-b-<b>sm</b>-*</code></td>
+              </tr>
+              <tr>
+                  <td><b><code>md</code></b></td>
+                  <td><code>@media screen and (min-width: 48em)</code></td>
+                  <td>≥ <b>768px</b></td>
+                  <td><code>.cp-c-<b>md</b>-*</code><code>.cp-b-<b>md</b>-*</code></td>
+              </tr>
+              <tr>
+                  <td><b><code>lg</code></b></td>
+                  <td><code>@media screen and (min-width: 64em)</code></td>
+                  <td>≥ <b>1024px</b></td>
+                  <td><code>.cp-c-<b>lg</b>-*</code><code>.cp-b-<b>lg</b>-*</code></td>
+              </tr>
+              <tr>
+                  <td><b><code>xl</code></b></td>
+                  <td><code>@media screen and (min-width: 80em)</code></td>
+                  <td>≥ <b>1280px</b></td>
+                  <td><code>.cp-c-<b>xl</b>-*</code><code>.cp-b-<b>xl</b>-*</code></td>
+              </tr>
+          </tbody>
+      </table>
 
     <h3>Children within a Layout Container</h3>
 
