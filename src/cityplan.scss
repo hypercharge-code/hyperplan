@@ -1,7 +1,7 @@
 @import "_layout";
 @import "_visibility";
 
-$breakpoints: (null: null, md: 35.5em, lg: 64em);
+$breakpoints: (null: null, sm: 35.5em, md: 48em, lg: 64em, xl: 80em);
 
 @each $name, $size in $breakpoints {
   @if $size == null {
