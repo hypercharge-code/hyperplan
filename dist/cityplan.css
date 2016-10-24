@@ -1,4 +1,4 @@
-.hide {
+.cp-hide {
   display: none;
 }
 
@@ -923,7 +923,7 @@
 }
 
 @media screen and (min-width: 35.5em) {
-  .sm-hide {
+  .cp-sm-hide {
     display: none;
   }
   .cp-i-sm-order-0 {
@@ -1722,7 +1722,7 @@
 }
 
 @media screen and (min-width: 48em) {
-  .md-hide {
+  .cp-md-hide {
     display: none;
   }
   .cp-i-md-order-0 {
@@ -2521,7 +2521,7 @@
 }
 
 @media screen and (min-width: 64em) {
-  .lg-hide {
+  .cp-lg-hide {
     display: none;
   }
   .cp-i-lg-order-0 {
@@ -3320,7 +3320,7 @@
 }
 
 @media screen and (min-width: 80em) {
-  .xl-hide {
+  .cp-xl-hide {
     display: none;
   }
   .cp-i-xl-order-0 {
