@@ -31,7 +31,7 @@
 @mixin flex-properties($breakpoint, $breakpoints) {
   $prefix: 'cp-i-#{breakpoint-prefix($breakpoint)}';
 
-  .#{$prefix}flex     { flex: 1 1 0;    box-sizing: border-box; }
+  .#{$prefix}flex     { flex: 1 1 0%;   box-sizing: border-box; }
   .#{$prefix}auto     { flex: 1 1 auto; box-sizing: border-box; }
   .#{$prefix}none     { flex: 0 0 auto; box-sizing: border-box; }
   .#{$prefix}noshrink { flex: 1 0 auto; box-sizing: border-box; }
