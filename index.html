@@ -82,12 +82,12 @@
 
         <div class="demo">
           <div class="cp-c-row" style="width: 50%;">
-            <div class="bg-purple cp-i-auto">First item in row</div>
-            <div class="bg-green cp-i-auto">Second item in row</div>
+            <div class="bg-purple cp-i-flex">First item in row</div>
+            <div class="bg-green cp-i-flex">Second item in row</div>
           </div>
           <div class="cp-c-column" style="width: 50%;">
-            <div class="bg-purple cp-i-auto">First item in column</div>
-            <div class="bg-green cp-i-auto">Second item in column</div>
+            <div class="bg-purple cp-i-flex">First item in column</div>
+            <div class="bg-green cp-i-flex">Second item in column</div>
           </div>
         </div>
 
@@ -150,20 +150,20 @@
           <div class="bg-green cp-i-50">
             .cp-i-50
           </div>
-          <div class="bg-red cp-i-auto">
-            .cp-i-auto
+          <div class="bg-red cp-i-flex">
+            .cp-i-flex
           </div>
         </div>
       </div>
 
-      <p>Add the <code>.cp-i-auto</code> class to a layout's child element and the element
+      <p>Add the <code>.cp-i-flex</code> class to a layout's child element and the element
       will flex (grow or shrink) to fit the area unused by other items.</p>
 
       <div class="demo">
         <div class="cp-c-row" style="width: 100%;">
-          <div class="bg-yellow cp-i-auto">.cp-i-auto</div>
-          <div class="bg-green cp-i-auto">.cp-i-auto</div>
-          <div class="bg-red cp-i-auto">.cp-i-auto</div>
+          <div class="bg-yellow cp-i-flex">.cp-i-flex</div>
+          <div class="bg-green cp-i-flex">.cp-i-flex</div>
+          <div class="bg-red cp-i-flex">.cp-i-flex</div>
         </div>
       </div>
 
@@ -191,8 +191,8 @@
           <div class="bg-purple cp-i-50">
             .cp-i-50
           </div>
-          <div class="bg-black-60 cp-i-auto">
-            .cp-i-auto
+          <div class="bg-black-60 cp-i-flex">
+            .cp-i-flex
           </div>
         </div>
       </div>
@@ -221,8 +221,12 @@
       </thead>
       <tbody>
         <tr>
+          <td><code>.cp-i-flex</code></td>
+          <td>Will grow and shrink according to the remaining space after all items are sized. Starts with zero size.</td>
+        </tr>
+        <tr>
           <td><code>.cp-i-auto</code></td>
-          <td>Will grow and shrink as needed. Starts with a size based on its <code>width</code> or <code>height</code>.</td>
+          <td>Will grow and shrink according to the remaining space after all items are sized. Starts with a size based on its <code>width</code> or <code>height</code>.</td>
         </tr>
         <tr>
           <td><code>.cp-i-none</code></td>
@@ -243,9 +247,7 @@
         
   <p>The <code>.cp-c-align-*-*</code> classenames are used to define how the items are be aligned in both the layout's direction and perpendicular to the layout's direction.</p>
   <p>For example, <code>.cp-c-row .cp-c-align-start-center</code> would align items to the left horizontally and center them vertically.
-        
-        
-        
+             
   <h3>Resources</h3>
     <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a>
     <br>
