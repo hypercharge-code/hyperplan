@@ -1,6 +1,6 @@
 {
   "name": "cityplan",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "CityPlan CSS",
   "scripts": {
     "build": "gulp clean && gulp build",
