@@ -40,13 +40,6 @@
   @for $i from 1 through 20 {
     $value : #{$i * 5 + '%'};
 
-    .#{$prefix}#{$i * 5} {
-      flex: 1 1 #{$value};
-      max-width: #{$value};
-      max-height: 100%;
-      box-sizing: border-box;
-    }
-
     #{class-list($breakpoints, 'row > .#{$prefix}#{$i * 5}')} {
       flex: 1 1 #{$value};
       max-width: #{$value};
@@ -134,18 +127,18 @@
   }
 
   // Main Axis Space Around
-  .#{$prefix}-space-around-center,
-  .#{$prefix}-space-around-start,
-  .#{$prefix}-space-around-end,
-  .#{$prefix}-space-around-stretch {
+  .#{$prefix}-spacearound-center,
+  .#{$prefix}-spacearound-start,
+  .#{$prefix}-spacearound-end,
+  .#{$prefix}-spacearound-stretch {
     justify-content: space-around;
   }
 
   // Main Axis Space Between
-  .#{$prefix}-space-between-center,
-  .#{$prefix}-space-between-start,
-  .#{$prefix}-space-between-end,
-  .#{$prefix}-space-between-stretch {
+  .#{$prefix}-spacebetween-center,
+  .#{$prefix}-spacebetween-start,
+  .#{$prefix}-spacebetween-end,
+  .#{$prefix}-spacebetween-stretch {
     justify-content: space-between;
   }
 
@@ -159,8 +152,8 @@
   .#{$prefix}-start-start,
   .#{$prefix}-center-start,
   .#{$prefix}-end-start,
-  .#{$prefix}-space-between-start,
-  .#{$prefix}-space-around-start {
+  .#{$prefix}-spacebetween-start,
+  .#{$prefix}-spacearound-start {
     align-items: flex-start;
     align-content: flex-start;
   }
@@ -169,8 +162,8 @@
   .#{$prefix}-start-center,
   .#{$prefix}-center-center,
   .#{$prefix}-end-center,
-  .#{$prefix}-space-between-center,
-  .#{$prefix}-space-around-center {
+  .#{$prefix}-spacebetween-center,
+  .#{$prefix}-spacearound-center {
     align-items: center;
     align-content: center;
     max-width: 100%;
@@ -180,8 +173,8 @@
   .#{$prefix}-start-center > *,
   .#{$prefix}-center-center > *,
   .#{$prefix}-end-center > *,
-  .#{$prefix}-space-between-center > *,
-  .#{$prefix}-space-around-center > * {
+  .#{$prefix}-spacebetween-center > *,
+  .#{$prefix}-spacearound-center > * {
     max-width: 100%;
     box-sizing: border-box;
   }
@@ -190,8 +183,8 @@
   .#{$prefix}-start-end,
   .#{$prefix}-center-end,
   .#{$prefix}-end-end,
-  .#{$prefix}-space-between-end,
-  .#{$prefix}-space-around-end {
+  .#{$prefix}-spacebetween-end,
+  .#{$prefix}-spacearound-end {
     align-items: flex-end;
     align-content: flex-end;
   }
@@ -200,8 +193,8 @@
   .#{$prefix}-start-stretch,
   .#{$prefix}-center-stretch,
   .#{$prefix}-end-stretch,
-  .#{$prefix}-space-between-stretch,
-  .#{$prefix}-space-around-stretch {
+  .#{$prefix}-spacebetween-stretch,
+  .#{$prefix}-spacearound-stretch {
     align-items: stretch;
     align-content: stretch;
   }
