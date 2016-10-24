@@ -1,7 +1,7 @@
 @mixin hide-for-name($name: null) {
-  $prefix: '';
+  $prefix: 'cp-';
   @if $name != null {
-    $prefix: '#{$name}-';
+    $prefix: 'cp-#{$name}-';
   }
 
   .#{$prefix}hide {
