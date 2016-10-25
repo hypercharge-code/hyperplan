@@ -2,6 +2,8 @@
   "name": "cityplan",
   "version": "0.1.1",
   "description": "CityPlan CSS",
+  "style": "dist/cityplan.css",
+  "main": "dist/cityplan.css",
   "scripts": {
     "build": "gulp clean && gulp build",
     "deploy": "npm run build && npm publish"
@@ -9,8 +11,8 @@
   "repository": "10citylabs/cityplan",
   "license": "MIT",
   "devDependencies": {
-    "autoprefixer": "6.5.0",
-    "cssnano": "3.7.5",
+    "autoprefixer": "6.5.1",
+    "cssnano": "3.8.0",
     "del": "2.2.2",
     "gulp": "3.9.1",
     "gulp-postcss": "6.2.0",
