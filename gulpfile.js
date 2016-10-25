@@ -21,7 +21,7 @@ gulp.task('build', function () {
       '>1%',
       'last 4 versions',
       'Firefox ESR',
-      'not ie < 9']
+      'not ie < 11']
     })]))
     .pipe(gulp.dest('dist/'))
     .pipe(postcss([ require('cssnano')() ]))
