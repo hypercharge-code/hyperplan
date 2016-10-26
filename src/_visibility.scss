@@ -1,10 +1,13 @@
-@mixin hide-for-name($name: null) {
-  $prefix: 'cp-';
-  @if $name != null {
-    $prefix: 'cp-#{$name}-';
-  }
+@import "_utils";
 
-  .#{$prefix}hide {
-     display: none;
+@mixin hide-for-name($name) {
+  .cp-#{breakpoint-prefix($name)}hide {
+    display: none;
+  }
+  .cp-#{breakpoint-prefix($name)}show-flex {
+    display: flex;
+  }
+  .cp-#{breakpoint-prefix($name)}show-block {
+    display: block;
   }
 }

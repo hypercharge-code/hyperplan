@@ -1,0 +1,17 @@
+@function breakpoint-prefix($name) {
+  @if $name != null {
+    @return '#{$name}-';
+  }
+  @else {
+    @return '';
+  }
+}
+
+@function breakpoint-element-list($prefix, $breakpointList, $suffix) {
+  $list: null;
+  @each $breakpoint in $breakpointList {
+    $breakpointKey: breakpoint-prefix($breakpoint);
+    $list: append($list, #{$prefix}#{$breakpointKey}#{$suffix}, comma);
+  }
+  @return $list;
+}

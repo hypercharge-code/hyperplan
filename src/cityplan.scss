@@ -1,17 +1,14 @@
 @import "_layout";
 @import "_visibility";
 
-$breakpoints: (null: null, sm: 35.5em, md: 48em, lg: 64em, xl: 80em);
+$breakpoints: (sm: 35.5em, md: 48em, lg: 64em, xl: 80em);
+
+@include hide-for-name(null);
+@include layouts_for_breakpoint(null, map-keys($breakpoints));
 
 @each $name, $size in $breakpoints {
-  @if $size == null {
-    @include hide-for-name();
+  @media screen and (min-width: $size) {
+    @include hide-for-name($name);
     @include layouts_for_breakpoint($name, map-keys($breakpoints));
-  }
-  @else {
-    @media screen and (min-width: $size) {
-      @include hide-for-name($name);
-      @include layouts_for_breakpoint($name, map-keys($breakpoints));
-    }
   }
 }
