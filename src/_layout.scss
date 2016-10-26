@@ -212,32 +212,32 @@
   }
 }
 
-@mixin layout-padding-margin($breakpoint, $breakpoints) {
+@mixin layout-padding-margin($breakpoint) {
   $prefix: 'cp-c-#{breakpoint-prefix($breakpoint)}';
 
   $step: 0;
   @each $space in (0 .25rem .5rem 1rem 2rem 4rem) {
-    #{class-list($breakpoints, 'padding-#{$step} > *')} {
+    #{$prefix}padding-#{$step} > * {
       padding: $space;
     }
 
-    #{class-list($breakpoints, 'padding-h-#{$step} > *')} {
+    #{$prefix}padding-h-#{$step} > * {
       padding: 0 $space;
     }
 
-    #{class-list($breakpoints, 'padding-v-#{$step} > *')} {
+    #{$prefix}padding-v-#{$step} > * {
       padding: $space 0;
     }
 
-    #{class-list($breakpoints, 'margin-#{$step} > *')} {
+    #{$prefix}margin-#{$step} > * {
       margin: $space;
     }
 
-    #{class-list($breakpoints, 'margin-h-#{$step} > *')} {
+    #{$prefix}margin-h-#{$step} > * {
       margin: 0 $space;
     }
 
-    #{class-list($breakpoints, 'margin-v-#{$step} > *')} {
+    #{$prefix}margin-v-#{$step} > * {
       margin: $space 0;
     }
 
@@ -248,7 +248,7 @@
 @mixin layouts_for_breakpoint($currentBreakpoint, $breakpoints) {
   @include flex-order($currentBreakpoint);
   @include layout-align($currentBreakpoint);
-  @include layout-padding-margin($currentBreakpoint, $breakpoints);
+  @include layout-padding-margin($currentBreakpoint);
   @include flex-properties($currentBreakpoint, $breakpoints);
   @include layout($currentBreakpoint);
 
