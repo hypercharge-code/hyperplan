@@ -222,13 +222,11 @@
     }
 
     #{class-list($breakpoints, 'padding-h-#{$step} > *')} {
-      padding-left:  $space;
-      padding-right: $space;
+      padding: 0 $space;
     }
 
-    #{class-list($breakpoints, 'padding-h-#{$step} > *')} {
-      padding-top:    $space;
-      padding-bottom: $space;
+    #{class-list($breakpoints, 'padding-v-#{$step} > *')} {
+      padding: $space 0;
     }
 
     #{class-list($breakpoints, 'margin-#{$step} > *')} {
@@ -236,13 +234,11 @@
     }
 
     #{class-list($breakpoints, 'margin-h-#{$step} > *')} {
-      margin-left:  $space;
-      margin-right: $space;
+      margin: 0 $space;
     }
 
     #{class-list($breakpoints, 'margin-v-#{$step} > *')} {
-      margin-top:    $space;
-      margin-bottom: $space;
+      margin: $space 0;
     }
 
     $step: $step + 1;
