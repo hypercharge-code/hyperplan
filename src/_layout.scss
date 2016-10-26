@@ -217,27 +217,27 @@
 
   $step: 0;
   @each $space in (0 .25rem .5rem 1rem 2rem 4rem) {
-    #{$prefix}padding-#{$step} > * {
+    .#{$prefix}padding-#{$step} > * {
       padding: $space;
     }
 
-    #{$prefix}padding-h-#{$step} > * {
+    .#{$prefix}padding-h-#{$step} > * {
       padding: 0 $space;
     }
 
-    #{$prefix}padding-v-#{$step} > * {
+    .#{$prefix}padding-v-#{$step} > * {
       padding: $space 0;
     }
 
-    #{$prefix}margin-#{$step} > * {
+    .#{$prefix}margin-#{$step} > * {
       margin: $space;
     }
 
-    #{$prefix}margin-h-#{$step} > * {
+    .#{$prefix}margin-h-#{$step} > * {
       margin: 0 $space;
     }
 
-    #{$prefix}margin-v-#{$step} > * {
+    .#{$prefix}margin-v-#{$step} > * {
       margin: $space 0;
     }
 
