@@ -15,3 +15,32 @@
   }
   @return $list;
 }
+
+@function lt-breakpoints($breakpoint, $breakpointList) {
+  $list: null;
+  $visited: false;
+
+  @if $breakpoint == null {
+    @return null;
+  }
+
+  @each $b in $breakpointList {
+    @if $visited == false {
+      @if $b == $breakpoint {
+        $visited: true;
+      } @else {
+        $list: append($list, $b);  
+      }
+    }
+  }
+
+  @return $list;
+}
+
+@function lte-breakpoints($breakpoint, $breakpointList) {
+  @if $breakpoint == null {
+    @return null;
+  }
+
+  @return append(lt-breakpoints($breakpoint, $breakpointList), $breakpoint);
+}

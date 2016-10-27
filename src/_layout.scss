@@ -12,20 +12,15 @@
   .#{$prefix}row    { flex-direction: row;    }
 }
 
-@mixin flex-properties($breakpoint, $breakpoints) {
-  $itemPrefix: 'cp-i-#{breakpoint-prefix($breakpoint)}';
-
-  .#{$itemPrefix}flex     { flex: 1 1 0%;   box-sizing: border-box; }
-  .#{$itemPrefix}auto     { flex: 1 1 auto; box-sizing: border-box; }
-  .#{$itemPrefix}none     { flex: 0 0 auto; box-sizing: border-box; }
-  .#{$itemPrefix}noshrink { flex: 1 0 auto; box-sizing: border-box; }
-  .#{$itemPrefix}nogrow   { flex: 0 1 auto; box-sizing: border-box; }
+@mixin flex-properties($breakpoint, $allBreakpoints) {
+  $lteBreakpoints: lte-breakpoints($breakpoint, $allBreakpoints);
+  $ltBreakpoints: lt-breakpoints($breakpoint, $allBreakpoints);
 
   @for $i from 1 through 20 {
     $value : #{$i * 5 + '%'};
 
-    .cp-c-row, #{breakpoint-element-list('.cp-c-', $breakpoints, 'row')} {
-      > .#{$itemPrefix}#{$i * 5} {
+    .cp-c-#{breakpoint-prefix($breakpoint)}row {
+      #{breakpoint-element-list('> .cp-i-', $lteBreakpoints, $i * 5)} {
         flex: 1 1 #{$value};
         max-width: #{$value};
         max-height: 100%;
@@ -33,24 +28,96 @@
       }
     }
 
-    .cp-c-column, #{breakpoint-element-list('.cp-c-', $breakpoints, 'column')} {
-      > .#{$itemPrefix}#{$i * 5} {
+    @if $breakpoint != null {
+      #{breakpoint-element-list('.cp-c-', $ltBreakpoints, 'row')} {
+        > .cp-i-#{breakpoint-prefix($breakpoint)}#{$i * 5} {
+          flex: 1 1 #{$value};
+          max-width: #{$value};
+          max-height: 100%;
+          box-sizing: border-box;
+        }
+      }
+    }
+
+    .cp-c-#{breakpoint-prefix($breakpoint)}column {
+      #{breakpoint-element-list('> .cp-i-', $lteBreakpoints, $i * 5)} {
         flex: 1 1 #{$value};
         max-width: 100%;
         max-height: #{$value};
         box-sizing: border-box;
       }
     }
+
+    @if $breakpoint != null {
+      #{breakpoint-element-list('.cp-c-', $ltBreakpoints, 'column')} {
+        > .cp-i-#{breakpoint-prefix($breakpoint)}#{$i * 5} {
+          flex: 1 1 #{$value};
+          max-width: 100%;
+          max-height: #{$value};
+          box-sizing: border-box;
+        }
+      }
+    }
   }
 
-  .cp-c-row, #{breakpoint-element-list('.cp-c-', $breakpoints, 'row')} {
-    > .#{$itemPrefix}33 {
+  .cp-c-#{breakpoint-prefix($breakpoint)}row,
+  .cp-c-#{breakpoint-prefix($breakpoint)}column {
+    #{breakpoint-element-list('> .cp-i-', $lteBreakpoints, 'flex')} {
+      flex: 1 1 0%;
+      box-sizing: border-box;
+    }
+    #{breakpoint-element-list('> .cp-i-', $lteBreakpoints, 'auto')} {
+      flex: 1 1 auto;
+      box-sizing: border-box;
+    }
+    #{breakpoint-element-list('> .cp-i-', $lteBreakpoints, 'none')} {
+      flex: 0 0 auto;
+      box-sizing: border-box;
+    }
+    #{breakpoint-element-list('> .cp-i-', $lteBreakpoints, 'noshrink')} {
+      flex: 1 0 auto;
+      box-sizing: border-box;
+    }
+    #{breakpoint-element-list('> .cp-i-', $lteBreakpoints, 'nogrow')} {
+      flex: 0 1 auto;
+      box-sizing: border-box;
+    }
+  }
+
+  @if $breakpoint != null {
+    #{breakpoint-element-list('.cp-c-', $ltBreakpoints, 'row')},
+    #{breakpoint-element-list('.cp-c-', $ltBreakpoints, 'column')} {
+      > .cp-i-#{breakpoint-prefix($breakpoint)}flex {
+        flex: 1 1 0%;
+        box-sizing: border-box;
+      }
+      > .cp-i-#{breakpoint-prefix($breakpoint)}auto {
+        flex: 1 1 auto;
+        box-sizing: border-box;
+      }
+      > .cp-i-#{breakpoint-prefix($breakpoint)}none {
+        flex: 0 0 auto;
+        box-sizing: border-box;
+      }
+      > .cp-i-#{breakpoint-prefix($breakpoint)}noshrink {
+        flex: 1 0 auto;
+        box-sizing: border-box;
+      }
+      > .cp-i-#{breakpoint-prefix($breakpoint)}nogrow {
+        flex: 0 1 auto;
+        box-sizing: border-box;
+      }
+    }
+  }
+
+  .cp-c-#{breakpoint-prefix($breakpoint)}row {
+    #{breakpoint-element-list('> .cp-i-', $lteBreakpoints, 33)} {
       flex: 1 1 33.33%;
       max-width: 33.33%;
       max-height: 100%;
       box-sizing: border-box;
     }
-    > .#{$itemPrefix}66 {
+    #{breakpoint-element-list('> .cp-i-', $lteBreakpoints, 66)} {
       flex: 1 1 66.66%;
       max-width: 66.66%;
       max-height: 100%;
@@ -58,19 +125,54 @@
     }
   }
 
-  .cp-c-column, #{breakpoint-element-list('.cp-c-', $breakpoints, 'column')} {
-    > .#{$itemPrefix}33 {
+  @if $breakpoint != null {
+    #{breakpoint-element-list('.cp-c-', $ltBreakpoints, 'row')} {
+      > .cp-i-#{breakpoint-prefix($breakpoint)}33 {
+        flex: 1 1 33.33%;
+        max-width: 33.33%;
+        max-height: 100%;
+        box-sizing: border-box;
+      }
+      > .cp-i-#{breakpoint-prefix($breakpoint)}66 {
+        flex: 1 1 66.66%;
+        max-width: 66.66%;
+        max-height: 100%;
+        box-sizing: border-box;
+      }
+    }
+  }
+
+  .cp-c-#{breakpoint-prefix($breakpoint)}column {
+    #{breakpoint-element-list('> .cp-i-', $lteBreakpoints, 33)} {
       flex: 1 1 33.33%;
       max-width: 100%;
       max-height: 33.33%;
       box-sizing: border-box;
     }
 
-    > .#{$itemPrefix}66 {
+    #{breakpoint-element-list('> .cp-i-', $lteBreakpoints, 66)} {
       flex: 1 1 66.66%;
       max-width: 100%;
       max-height: 66.66%;
       box-sizing: border-box;
+    }
+  }
+
+  @if $breakpoint != null {
+    #{breakpoint-element-list('.cp-c-', $ltBreakpoints, 'column')} {
+      > .cp-i-#{breakpoint-prefix($breakpoint)}33 {
+        flex: 1 1 33.33%;
+        max-width: 100%;
+        max-height: 33.33%;
+        box-sizing: border-box;
+      }
+
+      > .cp-i-#{breakpoint-prefix($breakpoint)}66 {
+        flex: 1 1 66.66%;
+        max-width: 100%;
+        max-height: 66.66%;
+        box-sizing: border-box;
+      }
     }
   }
 }
@@ -235,10 +337,10 @@
 
 @mixin layouts_for_breakpoint($currentBreakpoint, $breakpoints) {
   @include flex-order($currentBreakpoint);
+  @include layout($currentBreakpoint);
   @include layout-align($currentBreakpoint);
   @include layout-padding-margin($currentBreakpoint);
   @include flex-properties($currentBreakpoint, $breakpoints);
-  @include layout($currentBreakpoint);
 
   @if $currentBreakpoint == null {
     .cp-c-wrap {
