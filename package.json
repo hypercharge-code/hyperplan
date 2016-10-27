@@ -1,6 +1,6 @@
 {
   "name": "cityplan",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Responsive grid based on flexbox",
   "style": "dist/cityplan.css",
   "main": "dist/cityplan.css",
