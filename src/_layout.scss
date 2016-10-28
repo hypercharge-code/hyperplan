@@ -307,28 +307,38 @@
 
   $step: 0;
   @each $space in (0 .25rem .5rem 1rem 2rem 4rem) {
+    .#{$prefix}padding-#{$step},
     .#{$prefix}padding-#{$step} > * {
       padding: $space;
     }
 
+    .#{$prefix}padding-h-#{$step},
     .#{$prefix}padding-h-#{$step} > * {
-      padding: 0 $space;
+      padding-left: $space;
+      padding-right: $space;
     }
 
+    .#{$prefix}padding-v-#{$step},
     .#{$prefix}padding-v-#{$step} > * {
-      padding: $space 0;
+      padding-top: $space;
+      padding-bottom: $space;
     }
 
+    .#{$prefix}margin-#{$step},
     .#{$prefix}margin-#{$step} > * {
       margin: $space;
     }
 
+    .#{$prefix}margin-h-#{$step},
     .#{$prefix}margin-h-#{$step} > * {
-      margin: 0 $space;
+      margin-left: $space;
+      margin-right: $space;
     }
 
+    .#{$prefix}margin-v-#{$step},
     .#{$prefix}margin-v-#{$step} > * {
-      margin: $space 0;
+      margin-top: $space;
+      margin-bottom: $space;
     }
 
     $step: $step + 1;
