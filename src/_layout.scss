@@ -12,6 +12,13 @@
   .#{$prefix}row    { flex-direction: row;    }
 }
 
+@mixin layout-wrap($breakpoint) {
+  $prefix: 'cp-c-#{breakpoint-prefix($breakpoint)}';
+
+  .#{$prefix}wrap { flex-wrap: wrap; }
+  .#{$prefix}nowrap { flex-wrap: nowrap; }
+}
+
 @mixin flex-properties($breakpoint, $allBreakpoints) {
   $lteBreakpoints: lte-breakpoints($breakpoint, $allBreakpoints);
   $ltBreakpoints: lt-breakpoints($breakpoint, $allBreakpoints);
@@ -348,6 +355,7 @@
 @mixin layouts_for_breakpoint($currentBreakpoint, $breakpoints) {
   @include flex-order($currentBreakpoint);
   @include layout($currentBreakpoint);
+  @include layout-wrap($currentBreakpoint);
   @include layout-align($currentBreakpoint);
   @include layout-padding-margin($currentBreakpoint);
   @include flex-properties($currentBreakpoint, $breakpoints);
@@ -358,7 +366,7 @@
     }
 
     .cp-c-nowrap {
-        flex-wrap: nowrap;
+      flex-wrap: nowrap;
     }
 
     .cp-c-fill {

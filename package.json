@@ -1,6 +1,6 @@
 {
   "name": "hyperplan",
-  "version": "0.3.4",
+  "version": "0.4.0",
   "description": "Responsive CSS grid based on flexbox",
   "style": "dist/hyperplan.css",
   "main": "dist/hyperplan.css",
@@ -19,12 +19,12 @@
   "repository": "hypercharge-code/hyperplan",
   "license": "MIT",
   "devDependencies": {
-    "autoprefixer": "6.5.3",
-    "cssnano": "3.8.1",
-    "del": "2.2.2",
+    "autoprefixer": "7.1.2",
+    "cssnano": "3.10.0",
+    "del": "3.0.0",
     "gulp": "3.9.1",
-    "gulp-postcss": "6.2.0",
+    "gulp-postcss": "7.0.0",
     "gulp-rename": "1.2.2",
-    "gulp-sass": "2.3.2"
+    "gulp-sass": "3.1.0"
   }
 }
