@@ -1,4 +1,4 @@
-@import "_utils";
+@import '_utils';
 
 @mixin hide-for-name($name) {
   .cp-#{breakpoint-prefix($name)}hide {
@@ -9,5 +9,8 @@
   }
   .cp-#{breakpoint-prefix($name)}show-block {
     display: block;
+  }
+  .cp-#{breakpoint-prefix($name)}show-table-cell {
+    display: table-cell;
   }
 }
