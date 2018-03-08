@@ -12,6 +12,10 @@
   display: block;
 }
 
+.cp-show-table-cell {
+  display: table-cell;
+}
+
 .cp-i-order-last {
   -webkit-box-ordinal-group: 100000;
       -ms-flex-order: 99999;
@@ -888,6 +892,9 @@
   }
   .cp-sm-show-block {
     display: block;
+  }
+  .cp-sm-show-table-cell {
+    display: table-cell;
   }
   .cp-i-sm-order-last {
     -webkit-box-ordinal-group: 100000;
@@ -2088,6 +2095,9 @@
   }
   .cp-md-show-block {
     display: block;
+  }
+  .cp-md-show-table-cell {
+    display: table-cell;
   }
   .cp-i-md-order-last {
     -webkit-box-ordinal-group: 100000;
@@ -3293,6 +3303,9 @@
   }
   .cp-lg-show-block {
     display: block;
+  }
+  .cp-lg-show-table-cell {
+    display: table-cell;
   }
   .cp-i-lg-order-last {
     -webkit-box-ordinal-group: 100000;
@@ -4503,6 +4516,9 @@
   }
   .cp-xl-show-block {
     display: block;
+  }
+  .cp-xl-show-table-cell {
+    display: table-cell;
   }
   .cp-i-xl-order-last {
     -webkit-box-ordinal-group: 100000;

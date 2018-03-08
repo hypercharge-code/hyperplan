@@ -1,6 +1,6 @@
 {
   "name": "hyperplan",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Responsive CSS grid based on flexbox",
   "style": "dist/hyperplan.css",
   "main": "dist/hyperplan.css",
